@@ -2,7 +2,7 @@
 $db_username        = 'root'; //MySql database username
 $db_password        = 'root'; //MySql dataabse password
 $db_name            = 'lrs'; //MySql database name
-$db_host            = '52.86.217.182'; //MySql hostname or IP
+$db_host            = '52.86.217.182:5432'; //MySql hostname or IP
 
 $currency			= '&#8377; '; //currency symbol
 $shipping_cost		= 1.50; //shipping cost
