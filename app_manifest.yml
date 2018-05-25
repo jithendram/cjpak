@@ -1,0 +1,37 @@
+apiVersion: extensions/v1beta1 
+kind: Deployment
+metadata:
+  name: ajax-deployment
+spec:
+  replicas: 4
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+  minReadySeconds: 5 
+  template:
+    metadata:
+      labels:
+        node: child1
+    spec:
+      containers:
+      - name: ajax-deployment
+        image: vinodyv9/ajax:1
+        ports:
+        - containerPort: 8080
+        resources:
+          requests:
+            cpu: 250m
+          limits:
+            cpu: 500m
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ajax-service
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 8080
+  selector:
+    node: child1
