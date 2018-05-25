@@ -18,7 +18,7 @@ spec:
       - name: ajax-deployment
         image: vinodyv9/ajax:1
         ports:
-        - containerPort: 8080
+        - containerPort: 80
         resources:
           requests:
             cpu: 250m
